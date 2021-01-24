@@ -1,0 +1,5 @@
+@import "../student-dashboard/student-dashboard.component.css";
+
+.add-button {
+  margin-top: 50px;
+}

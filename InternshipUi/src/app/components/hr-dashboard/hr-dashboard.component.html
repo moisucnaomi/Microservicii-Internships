@@ -1,0 +1,21 @@
+<div class="dashboard-container">
+  <div class="left-container">
+    <div class="floating-button signout-button" (click)="addInternship()">
+      <mat-icon>add</mat-icon>
+    </div>
+  </div>
+  <div class="internship-container">
+    <app-filters [isHR]="true" (update)="onUpdate($event)"></app-filters>
+    <div class="internships">
+      <div *ngFor="let internship of internships">
+        <internship-card *ngIf="passesFilters(internship)" [internship]="internship"></internship-card>
+      </div>
+    </div>
+    <div [hidden]="emptyCollection" class="emptyListIcon"></div>
+  </div>
+  <div class="right-container">
+    <div class="floating-button add-button" (click)="signout()">
+      <mat-icon>exit_to_app</mat-icon>
+    </div>
+  </div>
+</div>

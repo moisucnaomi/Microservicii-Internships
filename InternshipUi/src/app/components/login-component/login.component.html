@@ -1,0 +1,30 @@
+<div class="login-container">
+    <div class="login-box">
+        <h4 class="login-header">Sign in</h4>
+        <div class="form-container">
+            <form [formGroup]="loginForm">
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <input type="text" formControlName="email" name="Email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    <input type="password" formControlName="password" name="Password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                        <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="button-container">
+            <button class="btn btn-primary login-button" (click)="loginUser()">Sign In</button>
+            <div class="register-button" (click)="registerUser()">Not A Member Yet? Register</div>
+        </div>
+        
+    </div>
+</div>

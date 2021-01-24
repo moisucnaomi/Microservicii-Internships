@@ -1,0 +1,24 @@
+<div class="internship-card" (click)="onClick()">
+  <div class="internship-icon" [ngSwitch]="internship?.area.name">
+    <mat-icon *ngSwitchCase="'Computer Science'">laptop</mat-icon>
+    <mat-icon *ngSwitchCase="'Business'">business_center</mat-icon>
+    <mat-icon *ngSwitchCase="'Marketing'">public</mat-icon>
+    <mat-icon *ngSwitchCase="'Arts'">brush</mat-icon>
+    <mat-icon *ngSwitchCase="'Human Resources'">people_alt</mat-icon>
+  </div>
+  <div class="internship-details">
+    <div class="top-details">
+      <div class="top-details-left">
+        <div class="title">{{ internship?.title }}</div>
+        <div class="season">{{ internship?.season.name }}</div>
+      </div>
+      <div class="top-details-right">
+        <div class="company">{{ internship?.company.name | titlecase }}</div>
+        <div class="location">{{ internship?.location.name }}</div>
+      </div>
+    </div>
+    <div class="bottom-details">
+      {{ internship?.catchDescription }}
+    </div>
+  </div>
+</div>

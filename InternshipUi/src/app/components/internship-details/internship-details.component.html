@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>
+  <div class="title">
+    <div class="internship-icon" [ngSwitch]="internship?.area.name">
+      <mat-icon *ngSwitchCase="'Computer Science'">laptop</mat-icon>
+      <mat-icon *ngSwitchCase="'Business'">business_center</mat-icon>
+      <mat-icon *ngSwitchCase="'Marketing'">public</mat-icon>
+      <mat-icon *ngSwitchCase="'Arts'">brush</mat-icon>
+      <mat-icon *ngSwitchCase="'Human Resources'">people_alt</mat-icon>
+    </div>
+    {{ internship?.title }}
+  </div>
+  <div class="close-button" (click)="close()">x</div>
+</h1>
+<div mat-dialog-content>
+  <div class="details">
+    <div class="left">
+      <div>{{ internship?.season.name }}</div>
+      <div>
+        {{ internship?.startDate | date }} - {{ internship?.endDate | date }}
+      </div>
+    </div>
+    <div class="right">
+      <div class="company">{{ internship?.company.name | titlecase }}</div>
+      <div class="location">{{ internship?.location.name }}</div>
+    </div>
+  </div>
+  <div class="job-description">{{ internship?.jobDescription }}</div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onApplyClick()">Apply</button>
+</div>

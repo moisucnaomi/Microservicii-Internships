@@ -1,0 +1,93 @@
+.dashboard-container {
+  background: linear-gradient(132deg, #ec5218, #1665c1);
+  background-size: 400% 400%;
+  animation: BackgroundGradient 30s ease infinite;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 15px 0;
+  overflow:hidden;
+}
+
+@keyframes BackgroundGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.left-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.internship-container {
+  flex: 2;
+  background-color: #252424;
+  border-radius: 1%;
+  padding-left: 10px;
+  display: flex;
+  flex-flow: column;
+}
+
+.internships {
+  overflow:auto;
+  padding-right: 10px;
+}
+
+.right-container {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.floating-button {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: lightgrey;
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.floating-button:hover {
+  opacity: 1;
+}
+
+.floating-button mat-icon {
+  font-size: 60px;
+  height: 60px;
+  width: 60px;
+}
+
+.signout-button {
+  margin-bottom: 50px;
+}
+
+.vertical-text {
+  transform: rotate(270deg);
+  position: absolute;
+  bottom: 270px;
+  font-size: 120px;
+  font-family: cursive;
+}
+
+.emptyListIcon {
+  background-image: url("../../../assets/box.png");
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  position: absolute;
+  top: 42%;
+  left: 46%;
+}
