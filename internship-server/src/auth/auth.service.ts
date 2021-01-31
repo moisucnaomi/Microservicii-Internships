@@ -7,8 +7,10 @@ import { UserService } from '../user/user.service';
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly userService: UserService, 
-              private readonly jwtService: JwtService) {}
+  constructor(
+    private readonly userService: UserService,
+    private readonly jwtService: JwtService,
+  ) {}
 
   async validateUser(email: string, password: string): Promise<any> {
     const user = await this.userService.getUserByEmail(email);
@@ -23,17 +25,22 @@ export class AuthService {
 
   async login(user: any) {
     const payload = { email: user.email };
+    const currentUser = await this.userService.getUserByEmail(user.email);
 
     return {
       access_token: this.jwtService.sign(payload),
+      currentUser: currentUser,
     };
   }
 
   async register(userDto: UserDto) {
     let existingUser = await this.userService.getUserByEmail(userDto.email);
-
-    if(existingUser)
-      throw new HttpException('A user with this email already exists', HttpErrorStatus.UserAlreadyExists);
+    console.log('useeer', existingUser, userDto);
+    if (existingUser)
+      throw new HttpException(
+        'A user with this email already exists',
+        HttpErrorStatus.UserAlreadyExists,
+      );
 
     this.userService.addUser(this.userService.dtoToUser(userDto));
   }

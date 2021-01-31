@@ -87,23 +87,22 @@
   flex-flow: column;
 }
 
-.floating-button{
+.floating-button {
   width: 200px;
   height: 200px;
   border-radius: 50%;
   background-color: lightgrey;
   opacity: 0.8;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  cursor:pointer;
-  overflow:hidden;
+  cursor: pointer;
+  overflow: hidden;
 }
 
-.floating-button:hover{
-  opacity:1;
+.floating-button:hover {
+  opacity: 1;
 }
-
 
 .floating-button mat-icon {
   font-size: 60px;
@@ -111,9 +110,12 @@
   width: 60px;
 }
 
-
-.returnToLogin{
+.returnToLogin {
   position: absolute;
-  top:20px;
-  left:50px;
+  top: 20px;
+  left: 50px;
+}
+
+.invalid-feedback {
+  display: block !important;
 }

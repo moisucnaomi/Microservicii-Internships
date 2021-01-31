@@ -7,10 +7,14 @@ import { InternshipDetailsComponent } from "../internship-details/internship-det
   templateUrl: "./internship-card.component.html",
   styleUrls: ["./internship-card.component.css"]
 })
-export class InternshipCardComponent{
+export class InternshipCardComponent {
   @Input() internship;
 
   constructor(private dialog: MatDialog) {}
+
+  ngOnInit() {
+    console.log("internship", this.internship);
+  }
 
   onClick() {
     this.dialog.open(InternshipDetailsComponent, {

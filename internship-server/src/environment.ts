@@ -1,3 +1,3 @@
 export const environment = {
-    bookMockups: true
+  internshipMockups: true,
 };

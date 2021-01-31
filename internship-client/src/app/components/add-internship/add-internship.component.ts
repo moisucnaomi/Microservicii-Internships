@@ -14,7 +14,7 @@ import {
 import { AREAS, LOCATIONS, SEASONS } from "src/app/shared/constants";
 import { InternshipService } from "src/app/shared/services/internship.service";
 import { Internship } from "src/app/models/Internship";
-import { UserService } from 'src/app/shared/services/user.service';
+import { UserService } from "src/app/shared/services/user.service";
 
 @Component({
   selector: "app-add-internship",
@@ -47,6 +47,7 @@ export class AddInternshipComponent implements OnInit {
     });
     this.startDate = new FormControl(new Date());
     this.endDate = new FormControl(new Date());
+    console.log("user", this.userService.getLoggedInUser());
   }
 
   onAddClick() {
@@ -59,7 +60,7 @@ export class AddInternshipComponent implements OnInit {
       this.endDate.value,
       this.addInternshipForm.controls.shortDescription.value,
       this.addInternshipForm.controls.jobDescription.value,
-      this.userService.getLoggedInUser().companyId
+      this.userService.getLoggedInUser().company
     );
     this.internshipService
       .addInternship(internship)

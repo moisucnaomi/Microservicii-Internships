@@ -16,7 +16,9 @@ export class InternshipDetailsComponent implements OnInit {
     this.internship = data;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log("internship", this.internship);
+  }
 
   onApplyClick() {
     this.dialogRef.close();

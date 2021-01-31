@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>
   <div class="title">
-    <div class="internship-icon" [ngSwitch]="internship?.area.name">
+    <div class="internship-icon" [ngSwitch]="internship?.areaName">
       <mat-icon *ngSwitchCase="'Computer Science'">laptop</mat-icon>
       <mat-icon *ngSwitchCase="'Business'">business_center</mat-icon>
       <mat-icon *ngSwitchCase="'Marketing'">public</mat-icon>
@@ -14,14 +14,14 @@
 <div mat-dialog-content>
   <div class="details">
     <div class="left">
-      <div>{{ internship?.season.name }}</div>
+      <div>{{ internship?.seasonName }}</div>
       <div>
         {{ internship?.startDate | date }} - {{ internship?.endDate | date }}
       </div>
     </div>
     <div class="right">
-      <div class="company">{{ internship?.company.name | titlecase }}</div>
-      <div class="location">{{ internship?.location.name }}</div>
+      <div class="company">{{ internship?.company | titlecase }}</div>
+      <div class="location">{{ internship?.locationName }}</div>
     </div>
   </div>
   <div class="job-description">{{ internship?.jobDescription }}</div>

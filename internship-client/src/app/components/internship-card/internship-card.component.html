@@ -1,5 +1,5 @@
 <div class="internship-card" (click)="onClick()">
-  <div class="internship-icon" [ngSwitch]="internship?.area.name">
+  <div class="internship-icon" [ngSwitch]="internship?.areaName">
     <mat-icon *ngSwitchCase="'Computer Science'">laptop</mat-icon>
     <mat-icon *ngSwitchCase="'Business'">business_center</mat-icon>
     <mat-icon *ngSwitchCase="'Marketing'">public</mat-icon>
@@ -10,11 +10,11 @@
     <div class="top-details">
       <div class="top-details-left">
         <div class="title">{{ internship?.title }}</div>
-        <div class="season">{{ internship?.season.name }}</div>
+        <div class="season">{{ internship?.seasonName }}</div>
       </div>
       <div class="top-details-right">
-        <div class="company">{{ internship?.company.name | titlecase }}</div>
-        <div class="location">{{ internship?.location.name }}</div>
+        <div class="company">{{ internship?.company | titlecase }}</div>
+        <div class="location">{{ internship?.locationName }}</div>
       </div>
     </div>
     <div class="bottom-details">

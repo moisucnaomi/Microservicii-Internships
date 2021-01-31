@@ -1,11 +1,11 @@
 export class User {
-    FirstName: string;
-    LastName: string;
-    Email: string;
-    Password: string;
-    Degree: string;
-    Date: Date;
-    Summary: string;
-    RoleId: string;
-    Company: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  // Degree: string;
+  // Date: Date;
+  // Summary: string;
+  roleId: string;
+  company: string;
 }
