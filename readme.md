@@ -1,10 +1,10 @@
-# Youbrary
+# Internships
 
 The system consists of 4 projects:
 - authentication-microservice
 - internship-microservice
 - user-microservice
-- youbrary-client
+- internship-client
 
 ### Technologies
 

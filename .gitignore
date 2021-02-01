@@ -1,6 +1,13 @@
 ﻿# compiled output
 /dist
 /node_modules
+/internship-server/authentication-microservice/dist
+/internship-server/authentication-microservice/node_modules
+/internship-server/user-microservice/dist
+/internship-server/user-microservice/node_modules
+/internship-server/internship-microservice/dist
+/internship-server/internship-microservice/node_modules
+
 
 # Logs
 logs
