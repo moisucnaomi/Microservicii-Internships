@@ -1,0 +1,118 @@
+<h1 mat-dialog-title>Add Internship</h1>
+<div mat-dialog-content>
+  <form [formGroup]="addInternshipForm">
+    <div class="add-internship-content">
+      <div class="row">
+        <div class="form-group col-md-5 col-sm-12">
+          <label for="InternshipTitle">Internship Title</label>
+          <input
+            type="text"
+            formControlName="internshipTitle"
+            name="InternshipTitle"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="form-group col-md-5 col-sm-12">
+          <label for="Area">Area</label>
+          <select
+          [value]="selectedArea"
+            class="form-control"
+            name="Area"
+            (change)="areaChanged($event.target.value)"
+          >
+            <option *ngFor="let area of areas" [value]="area.id">{{
+              area.name
+            }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-5">
+          <label for="Season">Season</label>
+          <select
+            [value]="selectedSeason"
+            class="form-control"
+            name="Season"
+            (change)="seasonChanged($event.target.value)"
+          >
+            <option *ngFor="let season of seasons" [value]="season.id">{{
+              season.name
+            }}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-5">
+          <label for="Location">Location</label>
+          <select
+          [value]="selectedLocation"
+            class="form-control"
+            name="Location"
+            (change)="locationChanged($event.target.value)"
+          >
+            <option *ngFor="let location of locations" [value]="location.id">{{
+              location.name
+            }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-5">
+          <label for="StartDate">Start Date</label>
+          <mat-form-field>
+            <input
+              matInput
+              [matDatepicker]="startDatePicker"
+              name="StartDate"
+              [formControl]="startDate"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="startDatePicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #startDatePicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="form-group col-md-5">
+          <label for="EndDate">End Date</label>
+          <mat-form-field>
+            <input
+              matInput
+              [matDatepicker]="endDatePicker"
+              name="EndDate"
+              [formControl]="endDate"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="endDatePicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #endDatePicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group long-row">
+          <label for="ShortDescription">Short Description</label>
+          <textarea
+            formControlName="shortDescription"
+            name="ShortDescription"
+          ></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group long-row">
+          <label for="JobDescription">Job Description</label>
+          <textarea
+            formControlName="jobDescription"
+            name="JobDescription"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onAddClick()">Edit</button>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+</div>

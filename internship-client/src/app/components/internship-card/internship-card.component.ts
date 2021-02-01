@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, Output,EventEmitter } from "@angular/core";
 import { MatDialog } from "@angular/material";
 import { InternshipDetailsComponent } from "../internship-details/internship-details.component";
 
@@ -9,6 +9,7 @@ import { InternshipDetailsComponent } from "../internship-details/internship-det
 })
 export class InternshipCardComponent {
   @Input() internship;
+  @Output() updateList= new EventEmitter<string>();
 
   constructor(private dialog: MatDialog) {}
 
@@ -17,9 +18,10 @@ export class InternshipCardComponent {
   }
 
   onClick() {
-    this.dialog.open(InternshipDetailsComponent, {
+    const dialogRef = this.dialog.open(InternshipDetailsComponent, {
       width: "450px",
       data: this.internship
     });
+    dialogRef.afterClosed().subscribe(result => this.updateList.emit(''));
   }
 }

@@ -1,5 +1,5 @@
 .internship-card {
-    width: 100%;
+    min-width: 100%;
     min-height: 125px;
     border-radius: 10px;
     background-color: white;

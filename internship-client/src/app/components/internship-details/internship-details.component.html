@@ -26,6 +26,8 @@
   </div>
   <div class="job-description">{{ internship?.jobDescription }}</div>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onApplyClick()">Apply</button>
+<div mat-dialog-actions *ngIf="isEditable">
+  <!-- <button mat-button (click)="onApplyClick()">Apply</button> -->
+  <button mat-button (click)="onEditClick()">Edit</button>
+  <button mat-button (click)="onDeleteClick()">Delete</button>
 </div>

@@ -1,6 +1,7 @@
 import { AREASMAP, LOCATIONSMAP, SEASONSMAP } from "../shared/constants";
 
 export class Internship {
+  id?: string;
   title: string;
   areaId: string;
   areaName: string;

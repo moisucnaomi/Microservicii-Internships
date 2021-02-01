@@ -26,6 +26,7 @@ import { MatInputModule } from "@angular/material/input";
 import { FiltersComponent } from "./components/filters/filters.component";
 import { MatSelectModule } from "@angular/material/select";
 import { InternshipDetailsComponent } from "./components/internship-details/internship-details.component";
+import { EditInternshipComponent } from './components/edit-internship/edit-internship.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { InternshipDetailsComponent } from "./components/internship-details/inte
     AddInternshipComponent,
     FiltersComponent,
     InternshipCardComponent,
-    InternshipDetailsComponent
+    InternshipDetailsComponent,
+    EditInternshipComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,7 @@ import { InternshipDetailsComponent } from "./components/internship-details/inte
     AuthGuard,
     InternshipService
   ],
-  entryComponents: [AddInternshipComponent, InternshipDetailsComponent],
+  entryComponents: [AddInternshipComponent, InternshipDetailsComponent,EditInternshipComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

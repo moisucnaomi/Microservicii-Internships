@@ -11,7 +11,15 @@ export class InternshipService {
     return this.httpClient.post(ApiUrls.Internship, internship);
   }
 
+  updateInternship(internship: Internship) {
+    return this.httpClient.put(ApiUrls.Internship, internship);
+  }
+
   getInternships() {
     return this.httpClient.get(ApiUrls.Internship);
+  }
+
+  deleteInternship(internshipID: string) {
+    return this.httpClient.delete(ApiUrls.Internship + '/' + internshipID);
   }
 }

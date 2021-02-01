@@ -8,7 +8,7 @@
     <app-filters [isHR]="true" (update)="onUpdate($event)"></app-filters>
     <div class="internships">
       <div *ngFor="let internship of internships">
-        <internship-card *ngIf="passesFilters(internship)" [internship]="internship"></internship-card>
+        <internship-card *ngIf="passesFilters(internship)" [internship]="internship" (updateList)="populateInternships()"></internship-card>
       </div>
     </div>
     <div [hidden]="emptyCollection" class="emptyListIcon"></div>

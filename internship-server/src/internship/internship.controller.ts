@@ -44,7 +44,7 @@ export class InternshipController {
     );
   }
 
-  @Put(':internshipID')
+  @Put()
   async update(@Body() internship: Internship): Promise<Internship> {
     const databaseInternship = this.internshipService.getInternshipByID(
       internship.id,
