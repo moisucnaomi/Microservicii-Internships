@@ -1,27 +1,27 @@
 version: "2"
 services:
   web:
-    build: ./youbrary-client
+    build: ./internship-client
     ports:
       - 8085:4200
   auth:
-    build: ./youbrary-server/authentication-microservice
+    build: ./internship-server/authentication-microservice
     ports:
       - 3001:3001
     environment:
       AUTH_HOST: auth
       USER_HOST: user
-  book:
-    build: ./youbrary-server/book-microservice
+  internship:
+    build: ./internship-server/internship-microservice
     ports:
       - 3003:3003
     environment:
       DB_HOST: mongo
-      BOOK_HOST: book
+      INTERNSHIP_HOST: internship
     links:
       - mongo
   user:
-    build: ./youbrary-server/user-microservice
+    build: ./internship-server/user-microservice
     environment:
       DB_HOST: mongo
       AUTH_HOST: auth
