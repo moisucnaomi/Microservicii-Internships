@@ -9,7 +9,6 @@ export class JwtInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         let currentUserToken = this.userService.getLoggedInUserToken();
-        console.log('token ++++++',currentUserToken );
 
         if (currentUserToken) {
             console.log(`Bearer ${currentUserToken}`);
