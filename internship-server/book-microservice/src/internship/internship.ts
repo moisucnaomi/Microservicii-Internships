@@ -1,7 +1,7 @@
 import { IsBase64, IsInt, IsString } from 'class-validator';
 import { Document } from 'mongoose';
 
-export class Book extends Document {
+export class Internship extends Document {
   @IsString() id: string;
   @IsString() title: string;
   @IsString() author: string;

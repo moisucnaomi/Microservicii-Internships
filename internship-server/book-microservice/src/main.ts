@@ -3,9 +3,9 @@ import { NestFactory } from '@nestjs/core';
 import { Transport } from '@nestjs/microservices';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
-import { book_host } from './config';
+import { internship_host } from './config';
 
-const logger = new Logger('Book Main');
+const logger = new Logger('Internship Main');
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -15,7 +15,7 @@ async function bootstrap() {
     options: {
       retryAttempts: 5,
       retryDelay: 3000,
-      host: book_host,
+      host: internship_host,
       port: 3004,
     }
   });
@@ -24,10 +24,10 @@ async function bootstrap() {
 
   app.enableCors();
   const options = new DocumentBuilder()
-    .setTitle('Book Service')
-    .setDescription('CRUD operations on Books')
+    .setTitle('Internship Service')
+    .setDescription('CRUD operations on Internships')
     .setVersion('1.0')
-    .addTag('book service')
+    .addTag('internship service')
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('doc', app, document);

@@ -6,4 +6,16 @@ export class UserDto {
 
   @ApiProperty()
   password: string;
+
+  @ApiProperty() 
+  firstName: string;
+
+  @ApiProperty() 
+  lastName: string;
+
+  @ApiProperty() 
+  roleId: string;
+
+  @ApiProperty() 
+  company: string;
 }

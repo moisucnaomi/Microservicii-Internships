@@ -2,7 +2,7 @@
 
 The system consists of 4 projects:
 - authentication-microservice
-- book-microservice
+- internship-microservice
 - user-microservice
 - youbrary-client
 
