@@ -1,9 +1,9 @@
-version: "2"
+version: "3"
 services:
   web:
     build: ./internship-client
     ports:
-      - 8085:4200
+      - 4200:4200
   auth:
     build: ./internship-server/authentication-microservice
     ports:
