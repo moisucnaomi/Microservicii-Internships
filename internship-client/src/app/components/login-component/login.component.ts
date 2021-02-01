@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
     };
     this.userService.authenticate(auth).subscribe((result: any) => {
       if (result != null) {
-        this.userService.setUserToken(result.access_tokern);
+        this.userService.setUserToken(result.access_token);
         this.userService.setUser(result.currentUser);
         this.router.navigate(["hr-dashboard"]);
         // if (result.roleId == 1) {

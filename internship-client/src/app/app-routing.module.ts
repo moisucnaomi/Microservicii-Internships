@@ -16,8 +16,8 @@ const routes: Routes = [
   },
   {
     path: "hr-dashboard",
-    component: HrDashboardComponent
-    // canActivate: [AuthGuard]
+    component: HrDashboardComponent,
+    canActivate: [AuthGuard]
   },
   { path: "**", component: LoginComponent }
 ];

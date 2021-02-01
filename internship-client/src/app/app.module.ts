@@ -27,6 +27,7 @@ import { FiltersComponent } from "./components/filters/filters.component";
 import { MatSelectModule } from "@angular/material/select";
 import { InternshipDetailsComponent } from "./components/internship-details/internship-details.component";
 import { EditInternshipComponent } from './components/edit-internship/edit-internship.component';
+import { JwtInterceptor } from "./shared/Interceptors/jwtInterceptor";
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { EditInternshipComponent } from './components/edit-internship/edit-inter
   providers: [
     UserService,
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     AuthGuard,
     InternshipService
   ],

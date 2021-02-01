@@ -16,7 +16,7 @@ import { Internship } from './internship';
 import { InternshipDto } from './internship.dto';
 import { InternshipService } from './internship.service';
 
-// @UseGuards(JwtGuard)
+@UseGuards(JwtGuard)
 @Controller('internship')
 export class InternshipController {
   constructor(private readonly internshipService: InternshipService) {}

@@ -33,7 +33,7 @@ export class UserService {
   }
 
   getLoggedInUserToken() {
-    return JSON.parse(localStorage.getItem("loggedInUserToken"));
+    return localStorage.getItem("loggedInUserToken");
   }
 
   authenticate(authenticateUser: any) {
@@ -42,6 +42,7 @@ export class UserService {
 
   forgetUser() {
     this.setUser(null);
+    this.setUserToken(null);
   }
 
   isUserLoggedIn() {
