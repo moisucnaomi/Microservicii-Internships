@@ -3,7 +3,6 @@ import { JwtService } from '@nestjs/jwt';
 import { ClientProxyFactory, Transport } from '@nestjs/microservices';
 import { user_host } from 'src/config';
 
-import { Provider } from './constants';
 import { UserDto } from './dto/user.dto';
 
 @Injectable()

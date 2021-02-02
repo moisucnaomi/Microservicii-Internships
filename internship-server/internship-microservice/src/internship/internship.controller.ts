@@ -1,13 +1,15 @@
-import { Body, Controller, Delete, Get, GoneException, Logger, NotFoundException, Param, Post, Put } from "@nestjs/common";
+import { Body, Controller, Delete, Get, GoneException, Logger, NotFoundException, Param, Post, Put, UseGuards } from "@nestjs/common";
 import { EventPattern, MessagePattern } from "@nestjs/microservices";
 import { ApiTags } from "@nestjs/swagger";
 
 import { v4 as uuidv4 } from 'uuid';
+import { JwtGuard } from "./guards/jwt.guard";
 
 import { Internship } from "./internship";
 import { InternshipService } from "./internship.service";
 
 @Controller('internships')
+@UseGuards(JwtGuard)
 @ApiTags('internships')
 export class InternshipController {
     private readonly logger = new Logger("Internship Controller");

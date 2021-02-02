@@ -8,19 +8,13 @@ The system consists of 4 projects:
 
 ### Technologies
 
-- Nestjs microservices on TCP:8875
+- Nestjs microservices
 - Mongodb
 - Docker
-
-## Order Web
-
-A Single Page Application developed using Angular which is the client-side interface for users to manage and to check the orders.
-A user can see the list of orders, check their statuses in real-time (websocket), and create or cancel an order.
 
 ### Technologies
 
 - Angular
-- Socket-io
 - Rxjs
 - Docker
 
