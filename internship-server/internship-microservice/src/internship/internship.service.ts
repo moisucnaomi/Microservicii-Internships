@@ -20,10 +20,14 @@ export class InternshipService {
     return await internshipModel.save();
   }
 
+  async updateInternship(internship: Internship): Promise<Internship> {
+    return await this.model.findOneAndUpdate({id: internship.id}, internship, {upsert: true});
+  }
+
   async deleteInternship(internshipID: string) {
     const internship = await this.getInternshipByID(internshipID);
 
     if(internship)
-      await this.model.deleteOne(internshipID);
+      await this.model.deleteOne({id: internshipID});
   }
 }

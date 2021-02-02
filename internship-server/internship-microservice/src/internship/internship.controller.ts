@@ -58,7 +58,7 @@ export class InternshipController {
             throw new GoneException();
         }
 
-        const updatedInternship = await this.internshipService.saveInternship(internship);
+        const updatedInternship = await this.internshipService.updateInternship(internship);
 
         this.logger.log("Internship updated");
 

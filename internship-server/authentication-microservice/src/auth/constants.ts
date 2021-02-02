@@ -3,8 +3,8 @@ export const jwtConstants = {
 };
 
 export const googleConstants = {
-    clientID: '892044754746-66v6vcnfugrdi69gnpr219l37c36ps09.apps.googleusercontent.com',     
-    clientSecret: 'url0AJTz5n8wk1euEkZCJ-c7',
+    clientID: '537938309927-1oo401rk2mjqfm6tl3hph0s1p6mq7v8l.apps.googleusercontent.com',     
+    clientSecret: 'Ab3_aGdSRuIIidsebGjitacF',
     callbackURL: 'http://localhost:3001/auth/google/callback'
 };
 
