@@ -1,13 +1,18 @@
-import { IsBase64, IsInt, IsString } from 'class-validator';
+import { IsBase64, IsDate, IsInt, IsString } from 'class-validator';
 import { Document } from 'mongoose';
 
 export class Internship extends Document {
   @IsString() id: string;
   @IsString() title: string;
-  @IsString() author: string;
-  @IsString() description: string;
-  @IsString() isbn: string;
-  @IsString() publisher: string;
-  @IsInt() numberOfPages: number;
-  @IsBase64() coverImage: string;
-}
+  @IsString() areaId: string;
+  @IsString() areaName: string;
+  @IsString() seasonId: string;
+  @IsString() seasonName: string;
+  @IsString() locationId: string;
+  @IsString() locationName: string;
+  @IsDate() startDate: Date;
+  @IsDate() endDate: Date;
+  @IsString() catchDescription: string;
+  @IsString() jobDescription: string;
+  @IsString() company: string
+} 

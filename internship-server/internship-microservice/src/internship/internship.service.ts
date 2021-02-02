@@ -21,7 +21,20 @@ export class InternshipService {
   }
 
   async updateInternship(internship: Internship): Promise<Internship> {
-    return await this.model.findOneAndUpdate({id: internship.id}, internship, {upsert: true});
+    return await this.model.findOneAndUpdate({id: internship.id}, {
+      title: internship.title,
+      areaId: internship.areaId,
+      areaName: internship.areaName,
+      seasonId: internship.seasonId,
+      seasonName: internship.seasonName,
+      locationId: internship.locationId,
+      locationName: internship.locationName,
+      startDate: internship.startDate,
+      endDate: internship.endDate,
+      catchDescription: internship.catchDescription,
+      jobDescription: internship.jobDescription,
+      company: internship.company},
+      {upsert: false,  new: true});
   }
 
   async deleteInternship(internshipID: string) {
