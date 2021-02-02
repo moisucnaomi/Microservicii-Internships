@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { UserService } from "src/app/shared/services/user.service";
+import { User } from "src/app/models/User";
 
 @Component({
   selector: "app-login",
@@ -47,13 +48,11 @@ export class LoginComponent implements OnInit {
     this.userService.authenticate(auth).subscribe((result: any) => {
       if (result != null) {
         this.userService.setUserToken(result.access_token);
-        this.userService.setUser(result.currentUser);
-        this.router.navigate(["hr-dashboard"]);
-        // if (result.roleId == 1) {
-        //   this.router.navigate(["hr-dashboard"]);
-        // } else {
-        //   this.router.navigate(["student-dashboard"]);
-        // }
+
+        this.userService.getUserDetails(auth.email).subscribe((user: User) => {
+          this.userService.setUser(user);
+          this.router.navigate(["hr-dashboard"]);
+        });
       }
     });
   }

@@ -8,25 +8,33 @@ import { Internship } from "./internship";
 import { InternshipService } from "./internship.service";
 
 @Controller('internships')
-@ApiTags('auth')
+@ApiTags('internships')
 export class InternshipController {
     private readonly logger = new Logger("Internship Controller");
 
     constructor(private readonly internshipService: InternshipService) {}
 
+    @MessagePattern('getInternships')
+    @Get('')
+    async getInternships(): Promise<Internship[]> {
+        this.logger.log("Internship - getInternships");
+
+        return await this.internshipService.getInternships();
+    }
+
     @MessagePattern('getInternshipByID')
     @Get('/internshipID/:internshipID')
     async getByID(@Param('internshipID') internshipID: string): Promise<Internship> {
-        this.logger.log("getByID method called - internshipID: " + internshipID);
+        this.logger.log("Internship - getByID - id: " + internshipID);
 
-        const internship = this.internshipService.getInternshipByID(internshipID);
+        const internship = await this.internshipService.getInternshipByID(internshipID);
 
         if (!internship) { 
             this.logger.log("Internship not found!");
             throw new NotFoundException("Internship not found");   
         }
                 
-        this.logger.log("Result: " + internship);
+        this.logger.log("Internship - getByID - result: " + internship.id);
 
         return internship;
     }
@@ -34,7 +42,7 @@ export class InternshipController {
     @MessagePattern('addInternship')
     @Post()
     async addInternship(@Body() internship: Internship): Promise<Internship> {
-        this.logger.log("addInternship method called - internship: " + internship);
+        this.logger.log("Internship - addInternship - id: " + internship.id);
 
         if(!internship.id)
             internship.id = uuidv4();
@@ -49,7 +57,7 @@ export class InternshipController {
     @MessagePattern('updateInternship')
     @Put()
     async update(@Body() internship: Internship): Promise<Internship> {
-        this.logger.log("update method called - internship: " + internship);
+        this.logger.log("Internship - updateInternship - id: " + internship.id);
 
         const databaseInternship = this.internshipService.getInternshipByID(internship.id);
 
@@ -68,7 +76,7 @@ export class InternshipController {
     @EventPattern('deleteInternship')
     @Delete(':internshipID')
     async deleteInternship(@Param('internshipID') internshipID: string): Promise<void> {
-        this.logger.log("deleteInternship method called - internshipID: " + internshipID);
+        this.logger.log("Internship - deleteInternship - id: " + internshipID);
 
         const internship = this.internshipService.getInternshipByID(internshipID);
 

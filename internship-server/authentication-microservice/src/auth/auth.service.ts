@@ -19,7 +19,7 @@ export class AuthService {
   constructor(private readonly jwtService: JwtService) {}
 
   async validateUser(email: string, password: string): Promise<any> {
-    return await this.userClient.send('getUserByEmail', email).subscribe(async (existingUser) => {
+    return this.userClient.send('getUserByEmail', email).subscribe(async (existingUser) => {
 
       if (existingUser && existingUser.password === password) {
         const { password, ...result } = existingUser;
@@ -30,8 +30,8 @@ export class AuthService {
     });
   }
 
-  async createToken(userEmail: string, provider: Provider) {
-    const payload = { email: userEmail, provider: provider };
+  async createToken(userEmail: string) {
+    const payload = { email: userEmail };
 
     return {
       access_token: this.jwtService.sign(payload),
@@ -42,26 +42,18 @@ export class AuthService {
     console.log(userDto);
 
     this.userClient.send('getUserByEmail', userDto.email).subscribe(async (existingUser) => {
-      console.log("aaaaaaaaaaaaaaaaaaaaa")
-      console.log(existingUser)
       if(existingUser)
-        throw new HttpException('A user with this email already exists', HttpStatus.INTERNAL_SERVER_ERROR);
+        throw new HttpException('This email is already in use!', HttpStatus.INTERNAL_SERVER_ERROR);
 
       this.userClient.send('saveUser', userDto).subscribe(async (savedUser) => {
-        console.log("saved!!!")
-        console.log(savedUser.email)
+        console.log("User registered!")
       });
     });
   }
 
-  async addGoogleUser(userEmail: string) {
-    this.userClient.send('getUserByEmail', userEmail).subscribe(async (existingUser) => {
-      if(!existingUser) {
-        let user = new UserDto();
-        user.email = userEmail;
-
-        this.userClient.send('saveUser', user).subscribe();
-      }
+  async getUserDetails(userEmail: string) {
+    return this.userClient.send('getUserByEmail', userEmail).toPromise().then((existingUser) => {
+      return existingUser;
     });
   }
 }

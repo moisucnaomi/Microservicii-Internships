@@ -10,9 +10,12 @@ export class InternshipService {
 
   constructor(@InjectModel('Internship') private readonly model: Model<Internship>) {}
 
+  async getInternships(): Promise<Internship[]> {
+    return await this.model.find({});
+  }
 
   async getInternshipByID(internshipID: string): Promise<Internship> {
-    return await this.model.findById(internshipID);
+    return await this.model.findById({id: internshipID});
   }
 
   async saveInternship(internship: Internship): Promise<Internship> {
@@ -38,9 +41,7 @@ export class InternshipService {
   }
 
   async deleteInternship(internshipID: string) {
-    const internship = await this.getInternshipByID(internshipID);
-
-    if(internship)
+    console.log("delete internship id: ", internshipID);
       await this.model.deleteOne({id: internshipID});
   }
 }

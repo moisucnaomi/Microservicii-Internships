@@ -1,7 +1,8 @@
 export class ApiUrls {
-  public static baseUrl = "http://localhost:3022";
-  public static AddUser = ApiUrls.baseUrl + "/register";
-  public static Internship = ApiUrls.baseUrl + "/internship";
-  public static UploadCV = ApiUrls.baseUrl + "/uploadCV";
-  public static Authenticate = ApiUrls.baseUrl + "/login";
+  public static baseUrlAuth = "http://localhost:3001/auth";
+  public static baseUrlInternship = "http://localhost:3003";
+  public static AddUser = ApiUrls.baseUrlAuth + "/register";
+  public static Internship = ApiUrls.baseUrlInternship + "/internships";
+  public static UploadCV = ApiUrls.baseUrlInternship + "/uploadCV";
+  public static Authenticate = ApiUrls.baseUrlAuth + "/login";
 }

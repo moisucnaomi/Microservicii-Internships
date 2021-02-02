@@ -7,7 +7,7 @@ import { AuthService } from './auth.service';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { LocalStrategy } from './strategies/local.strategy';
 import { AuthController } from './auth.controller';
-import { GoogleStrategy } from './strategies/google.strategy';
+
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { auth_host } from 'src/config';
 
@@ -27,6 +27,6 @@ import { auth_host } from 'src/config';
         }),
     ],
     controllers: [AuthController],
-    providers: [AuthService, LocalStrategy, JwtStrategy, GoogleStrategy]
+    providers: [AuthService, LocalStrategy, JwtStrategy]
 })
 export class AuthModule {}

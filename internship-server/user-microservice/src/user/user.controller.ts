@@ -13,31 +13,27 @@ export class UserController {
 
     @MessagePattern('getAllUsers')
     async getAllUsers(): Promise<User[]> {
-        this.logger.log("getAllUsers method called");
+        this.logger.log("Internship - getAllUsers");
 
         const users = await this.userService.getAllUsers();
 
-        this.logger.log("Result: " + users);
+        this.logger.log("Internship - getAllUsers - result length: " + users.length);
 
         return users;
     }
     
     @MessagePattern('getUserByEmail')
     async getUserByEmail(email: string): Promise<User> {
-        this.logger.log("getUserByEmail method called - email: " + email);
+        this.logger.log("Internship - getUserByEmail - email: " + email);
 
-        const user = await this.userService.getUserByEmail(email);
-
-        this.logger.log("Result: " + user);
-
-        return user;
+        return await this.userService.getUserByEmail(email);
     }
     
     @MessagePattern('saveUser')
     async saveUser(user: User): Promise<User> {
-        this.logger.log("saveUser method called - user: " + user.email);
+        this.logger.log("Internship - saveUser - email:  " + user.email);
 
-        const savedUser = this.userService.saveUser(user);
+        const savedUser = await this.userService.saveUser(user);
 
         this.logger.log("User Saved");
 

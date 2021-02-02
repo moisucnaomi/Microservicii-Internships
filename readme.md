@@ -30,8 +30,4 @@ Install Docker Desktop if you do not have it. Run docker package using docker-co
 
 $ docker-compose up 
 
-Then browse http://localhost:8085/orders
-
-Web Api can be checked through http://localhost:8877/api/orders and you can access api documentation through http://localhost:8877/doc
-
-Note: port 8875 and 8876 are not exposed by default in docker-compose.yml configuration. If you need them, you easily can change the config.
+Then browse http://localhost:4200

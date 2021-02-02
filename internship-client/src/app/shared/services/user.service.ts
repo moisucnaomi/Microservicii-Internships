@@ -36,6 +36,10 @@ export class UserService {
     return localStorage.getItem("loggedInUserToken");
   }
 
+  getUserDetails(email: string) {
+    return this.httpClient.get<User>(ApiUrls.baseUrlAuth + "/user/" + email)
+  }
+
   authenticate(authenticateUser: any) {
     return this.httpClient.post(ApiUrls.Authenticate, authenticateUser);
   }
